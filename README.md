@@ -61,7 +61,7 @@ You may not:
 - Redistribute or re-upload Loqor or its source code.
 - Claim the plugin or its code as your own.
 
-See [LICENSE](LICENSE) for details.
+See [LICENSE](License.txt) for details.
 
 ---
 
