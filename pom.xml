@@ -1,152 +1,153 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
-<groupId>me.loqtm.loqor</groupId>
-  <artifactId>loqor</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <modelVersion>4.0.0</modelVersion>
 
-<build>
+    <groupId>me.loqtm.loqor</groupId>
+    <artifactId>loqor</artifactId>
+    <version>0.0.4-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-<resources>
-  <!-- Filtering enabled ONLY for plugin.yml -->
-  <resource>
-    <directory>src/main/resources</directory>
-    <filtering>true</filtering>
-    <includes>
-      <include>plugin.yml</include>
-    </includes>
-  </resource>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <adventure.version>4.14.0</adventure.version>
+    </properties>
 
-  <!-- Filtering disabled for config.yml and others -->
-  <resource>
-    <directory>src/main/resources</directory>
-    <filtering>false</filtering>
-    <includes>
-      <include>config.yml</include>
-    </includes>
-  </resource>
-</resources>
+    <build>
+        <resources>
+            <!-- Filtering enabled ONLY for plugin.yml -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>plugin.yml</include>
+                </includes>
+            </resource>
 
-  <finalName>Loqor-${project.version}</finalName>
+            <!-- Filtering disabled for config.yml and others -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>config.yml</include>
+                </includes>
+            </resource>
+        </resources>
 
-  <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-shade-plugin</artifactId>
-      <version>3.4.1</version>
-      <executions>
-        <execution>
-          <phase>package</phase>
-          <goals>
-            <goal>shade</goal>
-          </goals>
-          <configuration>
-            <relocations>
-              <!-- Relocate Kyori Adventure packages to avoid conflicts -->
-              <relocation>
-                <pattern>net.kyori.adventure</pattern>
-                <shadedPattern>me.loqtm.loqor.libs.net.kyori.adventure</shadedPattern>
-              </relocation>
-              <relocation>
-                <pattern>org.intellij.lang.annotations</pattern>
-                <shadedPattern>me.loqtm.loqor.libs.org.intellij.lang.annotations</shadedPattern>
-              </relocation>
-            </relocations>
-            <createDependencyReducedPom>false</createDependencyReducedPom>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
-  </plugins>
-</build>
+        <finalName>Loqor-${project.version}</finalName>
 
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <!-- Relocate Kyori Adventure packages to avoid conflicts -->
+                                <relocation>
+                                    <pattern>net.kyori.adventure</pattern>
+                                    <shadedPattern>me.loqtm.loqor.libs.net.kyori.adventure</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.intellij.lang.annotations</pattern>
+                                    <shadedPattern>me.loqtm.loqor.libs.org.intellij.lang.annotations</shadedPattern>
+                                </relocation>
+                            </relocations>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <adventure.version>4.14.0</adventure.version>
-  </properties>
+    <dependencies>
+        <!-- Spigot API -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.20.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
 
-  <dependencies>
-    <!-- Spigot API -->
-    <dependency>
-      <groupId>org.spigotmc</groupId>
-      <artifactId>spigot-api</artifactId>
-      <version>1.20.4-R0.1-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
+        <!-- ProtocolLib -->
+        <dependency>
+            <groupId>com.comphenix.protocol</groupId>
+            <artifactId>ProtocolLib</artifactId>
+            <version>5.3.0</version>
+            <scope>provided</scope>
+        </dependency>
 
-<dependency>
-  <groupId>com.comphenix.protocol</groupId>
-  <artifactId>ProtocolLib</artifactId>
-  <version>5.3.0</version>
-  <scope>provided</scope>
-</dependency>
+        <!-- Paper API -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.20.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
 
-<dependency>
-  <groupId>io.papermc.paper</groupId>
-  <artifactId>paper-api</artifactId>
-  <version>1.20.4-R0.1-SNAPSHOT</version>
-  <scope>provided</scope>
-</dependency>
+        <!-- JUnit for unit testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
 
-    <!-- JUnit for unit testing -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+        <!-- Kyori Adventure API and MiniMessage -->
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-api</artifactId>
+            <version>${adventure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-serializer-legacy</artifactId>
+            <version>${adventure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-minimessage</artifactId>
+            <version>${adventure.version}</version>
+        </dependency>
+    </dependencies>
 
-    <!-- Kyori Adventure API and MiniMessage -->
-    <dependency>
-      <groupId>net.kyori</groupId>
-      <artifactId>adventure-api</artifactId>
-      <version>${adventure.version}</version>
-    </dependency>
-    <dependency>
-    <groupId>net.kyori</groupId>
-    <artifactId>adventure-text-serializer-legacy</artifactId>
-    <version>4.14.0</version> <!-- or latest compatible -->
-</dependency>
-    <dependency>
-      <groupId>net.kyori</groupId>
-      <artifactId>adventure-text-minimessage</artifactId>
-      <version>${adventure.version}</version>
-    </dependency>
-  </dependencies>
-
-<repositories>
-    <repository>
-      <id>spigot-repo</id>
-      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-    </repository>
-    <repository>
-      <id>papermc</id>
-      <url>https://repo.papermc.io/repository/maven-public/</url>
-    </repository>
-    <repository>
-      <id>enginehub</id>
-      <url>https://maven.enginehub.org/repo/</url>
-    </repository>
-    <repository>
-      <id>sonatype</id>
-      <url>https://oss.sonatype.org/content/repositories/releases/</url>
-    </repository>
-    <repository>
-      <id>central</id>
-      <url>https://repo.maven.apache.org/maven2/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+    <repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>enginehub</id>
+            <url>https://maven.enginehub.org/repo/</url>
+        </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
