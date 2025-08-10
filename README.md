@@ -19,7 +19,7 @@ Featuring unique “Vault Spirits” that talk to you, lore infusion for special
 
 ## 📦 Installation
 
-1. Download the latest Loqor vaults `.jar` from the [Releases](../../releases) page.
+1. Download the latest Loqor vaults `.jar` from the [Releases](https://www.spigotmc.org/resources/loqor-vaults.127858/history) page.
 2. Drop it into your server’s `plugins` folder.
 3. Restart your server to generate the default configuration.
 4. Edit `config.yml` to customize settings.
