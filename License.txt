@@ -1,0 +1,11 @@
+Copyright © 2025 Loqor
+
+All rights reserved.
+
+Unauthorized copying, modification, or distribution of this project,
+via any medium, is strictly prohibited without the express permission
+of the author.
+
+You are allowed to download and run the compiled plugin JAR on your own
+Minecraft server for personal or commercial use. Redistribution of the
+code or claiming authorship is not allowed.
