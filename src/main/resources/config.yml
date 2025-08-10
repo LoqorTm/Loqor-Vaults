@@ -1,0 +1,59 @@
+config-version: 1.2.0 # DO NOT TOUCH
+
+use-database: false
+
+personality:
+  enabled: true
+  greedy_chance_percent: 12
+  spirit_names:
+    - "Bubbles"
+    - "Sir Lootsworth"
+    - "Grumblechest"
+    - "Shiny Pete"
+    - "Captain Hoardbeard"
+    - "Miss Pockets"
+    - "Count Clutter"
+    - "Dusty"
+    - "Spoons"
+    - "Chestopher"
+  messages:
+    hoarder:
+      - "&d%spirit%: &7Another full house? Impressive…"
+      - "&d%spirit%: &7You’re running out of space faster than a creeper runs out of fuse."
+      - "&d%spirit%: &7If this keeps up, I’ll start charging rent."
+      - "&d%spirit%: &7A true dragon hoards gold. You hoard… everything."
+    minimalist:
+      - "&d%spirit%: &7You do remember I exist, right?"
+      - "&d%spirit%: &7So… is this a vault or a tumbleweed farm?"
+      - "&d%spirit%: &7Plenty of room left. Hint, hint."
+      - "&d%spirit%: &7Echo… echo…"
+    tidy:
+      - "&d%spirit%: &7Everything so… neat. I love it."
+      - "&d%spirit%: &7Your organizational skills could shame a librarian."
+      - "&d%spirit%: &7Symmetry is beauty. You understand this."
+      - "&d%spirit%: &7I could get used to this level of order."
+    messy:
+      - "&d%spirit%: &7Chaos is a ladder. And your ladder is tall."
+      - "&d%spirit%: &7I stopped counting how many different blocks are in here."
+      - "&d%spirit%: &7There’s a potato next to the diamonds. Why."
+      - "&d%spirit%: &7I can’t tell if this is art or an accident."
+    greeting:
+      - "&d%spirit%: &7Welcome back, %player%! What treasure today?"
+      - "&d%spirit%: &7Ah, it’s you again. I was just napping."
+      - "&d%spirit%: &7The vault creaks open for %player%."
+      - "&d%spirit%: &7I hope you brought snacks… for me."
+    greedy:
+      - "&d%spirit%: &7I’ll keep this %item% safe for you… forever."
+      - "&d%spirit%: &7Don’t mind me, just borrowing this %item%."
+      - "&d%spirit%: &7%item%? Mine now."
+      - "&d%spirit%: &7Finders keepers… especially for %item%."
+
+lore:
+  enabled: true
+  once_per_item: true
+  chance_percent: 100
+  trigger_names: ["ancient relic", "mysterious artifact", "forgotten idol"]
+  line_pool:
+    - "&6Once kept by the Vault of Loqor."
+    - "&6A whisper of power lingers within."
+    - "&6Said to unlock a hidden chest somewhere…"

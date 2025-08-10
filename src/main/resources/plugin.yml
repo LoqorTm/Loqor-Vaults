@@ -1,0 +1,85 @@
+name: Loqor
+version: ${project.version}
+main: me.loqtm.loqor.LoqorMain
+api-version: 1.20
+authors: [loqtm]
+description: Loqor - Your server, secure and streamlined.
+
+depend: [ProtocolLib]
+
+commands:
+  locker:
+    description: Open your lockers
+    aliases: [chest, lockers, vault]
+    usage: /locker [#] [player]
+    permission: loqor.commands.locker
+
+  lockerdel:
+    description: Delete a locker
+    usage: /lockerdel <#> [player]
+    permission: loqor.commands.lockerdel
+
+  lockersign:
+    description: Bind a locker to a sign
+    usage: /lockersign <#> [player]
+    permission: loqor.commands.lockersign
+
+  lockerfind:
+    description: Find which locker contains an item
+    usage: /lockerfind <item> [player]
+    permission: loqor.commands.lockerfind
+    aliases: [finditem, findvault]
+
+  lockerdeposit:
+    description:
+    usage: /lockerdeposit [locker] [player]
+    permission: loqor.commands.lockerdeposit
+    aliases: [deposit, qdeposit]
+
+  loqor:
+    description: Main Loqor Command
+    usage: /loqor <reload>
+    permission: loqor.base
+    aliases: [lq]
+
+permissions:
+  loqor.commands.locker:
+    default: true
+  loqor.commands.lockerdel:
+    default: op
+  loqor.commands.lockersign:
+    default: op
+
+  loqor.base:
+    default: true
+  loqor.reload:
+    default: op
+    description: Allows reloading the Loqor plugin
+
+  loqor.commands.lockerfind:
+    default: true
+
+  loqor.commands.lockerdeposit:
+    default: true
+
+  loqor.lockers.*:
+    children:
+      loqor.lockers.1: true
+      loqor.lockers.2: true
+      loqor.lockers.3: true
+
+  loqor.admin:
+    default: op
+    description: Full access to all lockers
+
+  loqor.delete:
+    default: op
+    description: Allows deleting other players' lockers
+
+  loqor.signs.use:
+    default: true
+  loqor.signs.set:
+    default: op
+  loqor.signs.bypass:
+    default: op
+

@@ -1,0 +1,4 @@
+signs:
+  <world>,<x>,<y>,<z>:
+    owner: <uuid>
+    locker: <number>
